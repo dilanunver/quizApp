@@ -6,6 +6,7 @@ export const EndScreen = ({ questions }) => {
   let score = 0;
   let empty = 0;
   let whatTheUserAnswered = []
+
   questions.forEach(function (question) {
     if (question.isCorrect) {
       score++
@@ -13,25 +14,22 @@ export const EndScreen = ({ questions }) => {
     if (!question.isAnswered) {
       empty++
     }
-    if (question.whichOptionSelected) {
+    if (question.whichOptionSelected === null) {
+      question.whichOptionSelected = 'empty';
       whatTheUserAnswered.push(question.whichOptionSelected)
     }
-    console.log(whatTheUserAnswered)
+    else if (question.whichOptionSelected !== null) {
+      whatTheUserAnswered.push(question.whichOptionSelected)
+    }
   })
-  // console.log(questions)
-  // whatTheUserAnswered.map((yourAnswer, index) => {
-  //   console.log(yourAnswer)
-  //   console.log(index)
-  // })
-
   return (
     <div className="App">
-      <h4>your quiz result</h4>
+      <h4>your quiz result </h4>
       <h5>score: {score} / {questions.length}</h5>
       <h6>your answers : {whatTheUserAnswered.map((yourAnswer, index) => {
         return (
           <ul>
-            question {index + 1} / {yourAnswer}
+            question {index + 1} / {yourAnswer} / {questions[index].isCorrect ? 'correct' : 'wrong'}
           </ul>
         )
       })}</h6>
