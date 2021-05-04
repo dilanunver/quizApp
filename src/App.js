@@ -63,7 +63,7 @@ function App() {
     )
   }
   return (
-    <div className="App">
+    <div>
       <Questions questions={questions} checkTheUser={checkTheUser} setIsEndScreen={setIsEndScreen}></Questions>
     </div>
   );

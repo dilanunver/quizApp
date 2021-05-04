@@ -22,14 +22,14 @@ export const Questions = ({ questions, checkTheUser, setIsEndScreen }) => {
   }
 
   return (
-    <div>
-      <h4>Quiz App</h4>
-      <h5>
+    <div >
+      <h4 className='quizApp'>Quiz App</h4>
+      <div className="container">
         <Question {...questions[currentQuestion]} length={questions.length} currentQuestion={currentQuestion}
           nextButton={nextButton} backButton={backButton} checkTheUser={checkTheUser} isLastQuestion={currentQuestion === questions.length - 1}
           isFirstQuestion={currentQuestion === questions.length - 10}
         ></Question>
-      </h5>
+      </div>
     </div>
   )
 
