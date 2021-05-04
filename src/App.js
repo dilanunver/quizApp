@@ -34,7 +34,6 @@ function App() {
   }
   const checkTheUser = (index, answer) => {
     const quizies = [...questions];
-    console.log(quizies)
     if (quizies[index].allAnswers.includes(answer)) {
       quizies[index].isAnswered = true;
       quizies[index].whichOptionSelected = answer
@@ -48,9 +47,10 @@ function App() {
   useEffect(() => {
     fetchForQuestion()
   }, [])
+
   if (loading) {
     return (
-      <div>
+      <div className="App">
         <Loading></Loading>
       </div>
     )
@@ -58,7 +58,7 @@ function App() {
   if (isEndScreen) {
     return (
       <div>
-        <EndScreen></EndScreen>
+        <EndScreen questions={questions}></EndScreen>
       </div>
     )
   }

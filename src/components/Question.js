@@ -2,7 +2,7 @@ import React from 'react'
 import { Loading } from '../components/Loading'
 
 
-export const Question = ({ question, allAnswers, nextButton, length, currentQuestion, checkTheUser, isAnswered, isCorrect, whichOptionSelected }) => {
+export const Question = ({ question, allAnswers, nextButton, backButton, length, currentQuestion, checkTheUser, isAnswered, isCorrect, whichOptionSelected, isLastQuestion, isFirstQuestion }) => {
 
   if (allAnswers === undefined) {
     return (
@@ -32,10 +32,12 @@ export const Question = ({ question, allAnswers, nextButton, length, currentQues
         )
       }
       )}</h5>
-      <>
-        <button onClick={nextButton}>Next</button>
+      {isFirstQuestion ? '' : <button onClick={backButton}>Back</button>}
 
-      </>
+      {isLastQuestion ? (<button onClick={nextButton}>Submit</button>) :
+        (<button onClick={nextButton}>Next</button>)}
+
+
 
     </div>
   )

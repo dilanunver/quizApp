@@ -13,12 +13,21 @@ export const Questions = ({ questions, checkTheUser, setIsEndScreen }) => {
       setIsEndScreen(true)
     }
   }
+  const backButton = () => {
+    setCurrentQuestion(currentQuestion - 1);
+    let previousPage = questions.length - 9;
+    if (previousPage >= currentQuestion) {
+      setCurrentQuestion(0)
+    }
+  }
+
   return (
     <div>
       <h4>Quiz App</h4>
       <h5>
         <Question {...questions[currentQuestion]} length={questions.length} currentQuestion={currentQuestion}
-          nextButton={nextButton} checkTheUser={checkTheUser}
+          nextButton={nextButton} backButton={backButton} checkTheUser={checkTheUser} isLastQuestion={currentQuestion === questions.length - 1}
+          isFirstQuestion={currentQuestion === questions.length - 10}
         ></Question>
       </h5>
     </div>
