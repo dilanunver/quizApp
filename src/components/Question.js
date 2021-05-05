@@ -2,7 +2,8 @@ import React from 'react'
 import { Loading } from '../components/Loading'
 
 
-export const Question = ({ question, allAnswers, nextButton, backButton, length, currentQuestion, checkTheUser, isAnswered, isCorrect, whichOptionSelected, isLastQuestion, isFirstQuestion }) => {
+export const Question = ({ question, allAnswers, nextButton, backButton, length, currentQuestion,
+  checkTheUser, isAnswered, isCorrect, whichOptionSelected, isLastQuestion, isFirstQuestion }) => {
 
   if (allAnswers === undefined) {
     return (

@@ -1,6 +1,12 @@
 import React from 'react'
 
-export const EndScreen = ({ questions }) => {
+export const EndScreen = ({ questions, fetchForQuestion, setCurrentQuestion, setIsEndScreen }) => {
+
+  const playAgain = () => {
+    fetchForQuestion()
+    setCurrentQuestion(0)
+    setIsEndScreen(false)
+  }
 
   // showing score , empty answers, and answers
   let score = 0;
@@ -29,11 +35,12 @@ export const EndScreen = ({ questions }) => {
       <h6>your answers : {whatTheUserAnswered.map((yourAnswer, index) => {
         return (
           <ul>
-            question {index + 1} / {yourAnswer} / {questions[index].isCorrect ? 'correct' : 'wrong'}
+            question {index + 1} / {yourAnswer} / {questions[index].correct_answer}
           </ul>
         )
       })}</h6>
       <h5>your empty results: {empty}</h5>
+      <button onClick={playAgain}>Play Again</button>
     </div>
   )
 }

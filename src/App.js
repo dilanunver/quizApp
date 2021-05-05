@@ -10,6 +10,7 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isEndScreen, setIsEndScreen] = useState(false)
+  const [currentQuestion, setCurrentQuestion] = useState(0)
   //fetching data
   const fetchForQuestion = async () => {
     setLoading(true)
@@ -58,13 +59,13 @@ function App() {
   if (isEndScreen) {
     return (
       <div>
-        <EndScreen questions={questions}></EndScreen>
+        <EndScreen questions={questions} fetchForQuestion={fetchForQuestion} setCurrentQuestion={setCurrentQuestion} currentQuestion={currentQuestion} setIsEndScreen={setIsEndScreen}></EndScreen>
       </div>
     )
   }
   return (
     <div>
-      <Questions questions={questions} checkTheUser={checkTheUser} setIsEndScreen={setIsEndScreen}></Questions>
+      <Questions questions={questions} checkTheUser={checkTheUser} setIsEndScreen={setIsEndScreen} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}></Questions>
     </div>
   );
 }

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Question } from './Question'
 
 
-export const Questions = ({ questions, checkTheUser, setIsEndScreen }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0)
+export const Questions = ({ questions, checkTheUser, setIsEndScreen, setCurrentQuestion, currentQuestion }) => {
+
 
 
   const nextButton = () => {
