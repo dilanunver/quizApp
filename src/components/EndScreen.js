@@ -1,10 +1,9 @@
 import React from 'react'
 
-export const EndScreen = ({ questions, fetchForQuestion, setCurrentQuestion, setIsEndScreen }) => {
+export const EndScreen = ({ questions, setIsEndScreen, setIsStartScreen }) => {
 
   const playAgain = () => {
-    fetchForQuestion()
-    setCurrentQuestion(0)
+    setIsStartScreen(true)
     setIsEndScreen(false)
   }
 

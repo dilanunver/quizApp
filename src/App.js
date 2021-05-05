@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import './App.css';
+// import './App.css';
 import { EndScreen } from './components/EndScreen';
 import { Loading } from './components/Loading'
 import { Questions } from './components/Questions';
+import { StartScreen } from './components/StartScreen';
 
 function App() {
   const url = 'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
@@ -11,9 +12,11 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [isEndScreen, setIsEndScreen] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [isStartScreen, setIsStartScreen] = useState(true)
   //fetching data
   const fetchForQuestion = async () => {
     setLoading(true)
+
     const response = await fetch(url)
     const result = await response.json()
     const questions = result.results;
@@ -30,6 +33,7 @@ function App() {
         question.allAnswers = allAnswersUnSorted
       }
     })
+    setIsStartScreen(false)
     setQuestions(questions)
     setLoading(false)
   }
@@ -45,10 +49,6 @@ function App() {
     setQuestions(quizies)
   }
 
-  useEffect(() => {
-    fetchForQuestion()
-  }, [])
-
   if (loading) {
     return (
       <div className="App">
@@ -56,18 +56,29 @@ function App() {
       </div>
     )
   }
+
   if (isEndScreen) {
     return (
       <div>
-        <EndScreen questions={questions} fetchForQuestion={fetchForQuestion} setCurrentQuestion={setCurrentQuestion} currentQuestion={currentQuestion} setIsEndScreen={setIsEndScreen}></EndScreen>
+        <EndScreen questions={questions} fetchForQuestion={fetchForQuestion} setIsStartScreen={setIsStartScreen} setCurrentQuestion={setCurrentQuestion} setIsEndScreen={setIsEndScreen}></EndScreen>
       </div>
     )
   }
+  if (isStartScreen) {
+    return (
+      <div>
+        <StartScreen fetchForQuestion={fetchForQuestion} setIsStartScreen={setIsStartScreen} setCurrentQuestion={setCurrentQuestion} ></StartScreen>
+      </div>
+    )
+  }
+
   return (
     <div>
       <Questions questions={questions} checkTheUser={checkTheUser} setIsEndScreen={setIsEndScreen} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}></Questions>
     </div>
   );
+
+
 }
 
 export default App;
