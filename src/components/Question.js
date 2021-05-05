@@ -11,32 +11,32 @@ export const Question = ({ question, allAnswers, nextButton, backButton, length,
     )
   }
   return (
-    <div>
-      <h5>question {currentQuestion + 1} / {length}</h5>
-      <h3>{question}</h3>
-      <h5>{allAnswers.map((answer) => {
+    <div className='container'>
+      <h6 className='container-title'>question {currentQuestion + 1} / {length}</h6>
+      <p className='container-question'>{question}</p>
+      <h5 className='container-answer-btn'>{allAnswers.map((answer) => {
         let buttonStyle = {}
         if (isAnswered && whichOptionSelected === answer) {
           if (isCorrect) {
-            buttonStyle = { backgroundColor: 'green', color: 'white' }
+            buttonStyle = { backgroundColor: '#4dd05a', color: '#FAF8F8' }
           } else {
-            buttonStyle = { backgroundColor: 'red', color: 'white' }
+            buttonStyle = { backgroundColor: '#d04d62', color: '#FAF8F8' }
           }
         }
         return (
-          <ul>
-            <button
+          <div className='answer-btn'>
+            <button className='answer-btn-style'
               disabled={isAnswered}
               style={buttonStyle}
               onClick={() => checkTheUser(currentQuestion, answer)}>{answer}</button>
-          </ul>
+          </div>
         )
       }
       )}</h5>
-      {isFirstQuestion ? '' : <button onClick={backButton}>Back</button>}
+      {isFirstQuestion ? '' : <button className='back-button' onClick={backButton}>Back</button>}
 
-      {isLastQuestion ? (<button onClick={nextButton}>Submit</button>) :
-        (<button onClick={nextButton}>Next</button>)}
+      {isLastQuestion ? (<button className='submit-btn' onClick={nextButton}>Submit</button>) :
+        (<button className='next-button' onClick={nextButton}>Next</button>)}
 
 
 

@@ -22,15 +22,15 @@ export const Questions = ({ questions, checkTheUser, setIsEndScreen, setCurrentQ
   }
 
   return (
-    <div >
-      <h4 >Quiz App</h4>
-      <div >
-        <Question {...questions[currentQuestion]} length={questions.length} currentQuestion={currentQuestion}
-          nextButton={nextButton} backButton={backButton} checkTheUser={checkTheUser} isLastQuestion={currentQuestion === questions.length - 1}
-          isFirstQuestion={currentQuestion === questions.length - 10}
-        ></Question>
-      </div>
+
+
+    <div>
+      <Question {...questions[currentQuestion]} length={questions.length} currentQuestion={currentQuestion}
+        nextButton={nextButton} backButton={backButton} checkTheUser={checkTheUser} isLastQuestion={currentQuestion === questions.length - 1}
+        isFirstQuestion={currentQuestion === questions.length - 10}
+      ></Question>
     </div>
+
   )
 
 }

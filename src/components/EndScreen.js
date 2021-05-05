@@ -39,7 +39,7 @@ export const EndScreen = ({ questions, setIsEndScreen, setIsStartScreen }) => {
         )
       })}</h6>
       <h5>your empty results: {empty}</h5>
-      <button onClick={playAgain}>Play Again</button>
+      <button className='play-again' onClick={playAgain}>Play Again</button>
     </div>
   )
 }

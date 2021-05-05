@@ -8,9 +8,9 @@ export const StartScreen = ({ fetchForQuestion, setIsStartScreen, setCurrentQues
     setIsStartScreen(false)
   }
   return (
-    <div>
-      <h4>welcome the quiz!</h4>
-      <h5>if you want, you can <button onClick={startTheGame}>start</button></h5>
+    <div className='start-screen'>
+      <h4 className='header'>welcome to the quizApp!</h4>
+      <h5 className='title'>if you want, you can <button className='start-button' onClick={startTheGame}>start</button></h5>
     </div>
   )
 }

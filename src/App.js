@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-// import './App.css';
+import React, { useState } from 'react'
+import './App.css';
 import { EndScreen } from './components/EndScreen';
 import { Loading } from './components/Loading'
 import { Questions } from './components/Questions';
@@ -51,7 +51,7 @@ function App() {
 
   if (loading) {
     return (
-      <div className="App">
+      <div >
         <Loading></Loading>
       </div>
     )
