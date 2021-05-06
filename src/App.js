@@ -6,18 +6,22 @@ import { Questions } from './components/Questions';
 import { StartScreen } from './components/StartScreen';
 
 function App() {
-  const url = 'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
 
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isEndScreen, setIsEndScreen] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [isStartScreen, setIsStartScreen] = useState(true)
+  const [categoryType, setCategoryType] = useState("")
+  const [difficultyType, setDifficultyType] = useState("");
+
   //fetching data
   const fetchForQuestion = async () => {
     setLoading(true)
+    let url = `https://opentdb.com/api.php?amount=10&category=${categoryType}&difficulty=${difficultyType}&type=multiple`
 
     const response = await fetch(url)
+    console.log(response)
     const result = await response.json()
     const questions = result.results;
     // adding some values of the array
@@ -67,7 +71,8 @@ function App() {
   if (isStartScreen) {
     return (
       <div>
-        <StartScreen fetchForQuestion={fetchForQuestion} setIsStartScreen={setIsStartScreen} setCurrentQuestion={setCurrentQuestion} ></StartScreen>
+        <StartScreen fetchForQuestion={fetchForQuestion} setIsStartScreen={setIsStartScreen} setCurrentQuestion={setCurrentQuestion}
+          setCategoryType={setCategoryType} setDifficultyType={setDifficultyType}></StartScreen>
       </div>
     )
   }
@@ -78,7 +83,7 @@ function App() {
     </div>
   );
 
-
 }
+
 
 export default App;
