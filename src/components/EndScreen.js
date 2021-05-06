@@ -20,7 +20,7 @@ export const EndScreen = ({ questions, setIsEndScreen, setIsStartScreen }) => {
       empty++
     }
     if (question.whichOptionSelected === null) {
-      question.whichOptionSelected = 'empty';
+      question.whichOptionSelected = '-';
       whatTheUserAnswered.push(question.whichOptionSelected)
     }
     else if (question.whichOptionSelected !== null) {
@@ -28,18 +28,24 @@ export const EndScreen = ({ questions, setIsEndScreen, setIsStartScreen }) => {
     }
   })
   return (
-    <div className="App">
-      <h4>your quiz result </h4>
-      <h5>score: {score} / {questions.length}</h5>
-      <h6>your answers : {whatTheUserAnswered.map((yourAnswer, index) => {
+    <div className="start-screen">
+      <h4 className='header'>your quiz result </h4>
+      <h5 className='score'>score: <span>{score}</span> / {questions.length}</h5>
+      <h5 className='empty'>your empty results:  <span>{empty}</span></h5>
+      <button className='play-again' onClick={playAgain}>Play Again</button>
+      <h6 className='result'>{whatTheUserAnswered.map((yourAnswer, index) => {
         return (
+
           <ul>
-            question {index + 1} / {yourAnswer} / {questions[index].correct_answer}
+            <p className='question'> question {index + 1}</p>
+            <p className='your-answer'> your answer: {yourAnswer}</p>
+            <p className='right-answer'>right answer: <span>{questions[index].correct_answer}</span></p>
           </ul>
+
         )
       })}</h6>
-      <h5>your empty results: {empty}</h5>
-      <button className='play-again' onClick={playAgain}>Play Again</button>
+
+
     </div>
   )
 }
