@@ -30,7 +30,7 @@ function App() {
       item.isCorrect = false;
       item.whichOptionSelected = null;
     })
-    questions.map((question) => {
+    questions.forEach((question) => {
       if (question.incorrect_answers.length === 3) {
         const allAnswersUnSorted = [...question.incorrect_answers, question.correct_answer]
         allAnswersUnSorted.sort(() => Math.random() - 0.5)
