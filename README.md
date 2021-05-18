@@ -1,6 +1,6 @@
-![quizapp2](https://user-images.githubusercontent.com/75390608/118640353-8c0b2f80-b7e1-11eb-83bc-d6f871456001.png)
-
 ![quizapp3](https://user-images.githubusercontent.com/75390608/118640345-89103f00-b7e1-11eb-9ae3-6744e3d47ebd.png)
+
+![quizapp2](https://user-images.githubusercontent.com/75390608/118640353-8c0b2f80-b7e1-11eb-83bc-d6f871456001.png)
 
 ![quizapp4](https://user-images.githubusercontent.com/75390608/118640336-86ade500-b7e1-11eb-9c3d-1588b64a317d.png)
 
